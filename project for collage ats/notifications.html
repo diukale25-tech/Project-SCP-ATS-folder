@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Notifications</title>
+
+  <!-- SAME CSS FILE -->
+  <link rel="stylesheet" href="dashboard-css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="no-scroll">
+
+<div class="dashboard">
+
+  <!-- SIDEBAR (same as dashboard) -->
+   <aside class="sidebar">
+  <h2>Student 👩🏻👨🏻</h2>
+<ul class="menu">
+
+  <li class="active">
+    <a href="student-dashboard.html">
+      <i class="fa-solid fa-house"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+
+   <li onclick="location.href='companies.html'">
+  <i class="fa-solid fa-building"></i>
+  Companies
+</li>
+
+  <li>
+    <a href="applied-jobs.html">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Applied Jobs</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="training.html">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="notifications.html">
+      <i class="fa-solid fa-bell"></i>
+      <span>Notifications</span>
+    </a>
+  </li>
+
+  <li class="logout">
+    <a href="login.html">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Logout</span>
+    </a>
+  </li>
+
+</ul>
+</aside>
+
+  <!-- MAIN -->
+  <main class="main notifications-page">
+
+    <div class="header">
+      <h1 class="page-title">All Notifications 🔔</h1>
+    </div>
+
+  <div class="notification-list">
+    <div class="notification-item">
+      <span class="dot interview"></span>
+      <p><b>Interview scheduled with Google</b></p>
+      <small>Jan 30 · 10:00 AM</small>
+    </div>
+
+    <div class="notification-item">
+      <span class="dot update"></span>
+      <p><b>Resume viewed by Stripe</b></p>
+      <small>Today</small>
+  </div>
+
+        <div class="notification-item">
+          <span class="dot new"></span>
+            <p><b>New training added: React Basics</b></p>
+            <small>1 day ago</small>
+        </div>
+        </div>
+
+        <div class="notification-item">
+          <span class="dot update"></span>
+            <p><b>Status updated for UX Intern</b></p>
+            <small>2 days ago</small>
+        </div>
+        </div>
+      </div>
+   
+
+  </main>
+
+</body>
+</html>

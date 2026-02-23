@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Applied Jobs</title>
+  <link rel="stylesheet" href="dashboard-css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+ <aside class="sidebar">
+  <h2>Student 👩🏻👨🏻</h2>
+<ul class="menu">
+
+  <li class="active">
+    <a href="student-dashboard.html">
+      <i class="fa-solid fa-house"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+
+   <li onclick="location.href='companies.html'">
+  <i class="fa-solid fa-building"></i>
+  Companies
+</li>
+
+  <li>
+    <a href="applied-jobs.html">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Applied Jobs</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="training.html">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="notifications.html">
+      <i class="fa-solid fa-bell"></i>
+      <span>Notifications</span>
+    </a>
+  </li>
+
+  <li class="logout">
+    <a href="login.html">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Logout</span>
+    </a>
+  </li>
+
+</ul>
+</aside>
+ 
+    <main class="main">
+
+  <h1>All Applied Jobs 💼</h1>
+
+  <div class="jobs-list">
+
+    <div class="job-item">
+      <div>
+        <h4>Google</h4>
+        <p>UX Intern</p>
+      </div>
+      <span class="status selected">Selected</span>
+    </div>
+
+    <div class="job-item">
+      <div>
+        <h4>Stripe</h4>
+        <p>Frontend Developer</p>
+      </div>
+      <span class="status rejected">Rejected</span>
+    </div>
+
+    <div class="job-item">
+      <div>
+        <h4>Amazon</h4>
+        <p>UI Designer</p>
+      </div>
+      <span class="status review">Under Review</span>
+    </div>
+
+  </div>
+
+</main>
+
+</div>
+
+</body>
+</html>

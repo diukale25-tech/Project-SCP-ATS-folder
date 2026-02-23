@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Company Details</title>
+  <link rel="stylesheet" href="company-details-css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="student-view">
+
+
+<div class="company-container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    Home > Companies > <span>TechFusion Solutions</span>
+  </div>
+
+  <!-- Header -->
+  <div class="company-header">
+    <div class="company-left">
+      <div class="company-logo">TF</div>
+      <div class="company-title">
+        <h2>TechFusion Solutions</h2>
+        <p>Innovative IT Solutions for the Future</p>
+      </div>
+    </div>
+
+    <div class="company-actions">
+      <button class="btn-outline">Visit Website</button>
+      <button class="btn-primary">Follow Company</button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active">Contact Info</button>
+    <button class="tab">Company Overview</button>
+  </div>
+
+  <!-- Info Grid -->
+  <div class="info-grid">
+
+    <!-- Contact Info -->
+    <div class="info-card">
+      <h3>Contact Information</h3>
+
+      <div class="info-row">
+        <label>Phone:</label>
+        <span>(123) 456-7890</span>
+      </div>
+
+      <div class="info-row">
+        <label>Email:</label>
+        <span>info@techfusion.com</span>
+      </div>
+
+      <div class="info-row">
+        <label>Address:</label>
+        <span>1234 Innovation Drive, Suite 500</span>
+      </div>
+
+      <div class="info-row">
+        <label>Website:</label>
+        <span>www.techfusion.com</span>
+      </div>
+
+      <div class="info-row">
+        <label>LinkedIn:</label>
+        <span>linkedin.com/company/techfusion</span>
+      </div>
+    </div>
+
+    <!-- Key Info -->
+    <div class="info-card">
+      <h3>Key Information</h3>
+
+      <div class="info-row">
+        <label>Industry:</label>
+        <span>Information Technology</span>
+      </div>
+
+      <div class="info-row">
+        <label>Founded:</label>
+        <span>2008</span>
+      </div>
+
+      <div class="info-row">
+        <label>Employees:</label>
+        <span>150-200</span>
+      </div>
+
+      <div class="info-row">
+        <label>Revenue:</label>
+        <span>$25M-$50M</span>
+      </div>
+
+      <div class="info-row">
+        <label>CEO:</label>
+        <span>Sarah Mitchell</span>
+      </div>
+
+      <div class="info-row">
+        <label>Status:</label>
+        <span class="status active">Active</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Overview Section -->
+  <div class="overview-card">
+    <h3>Company Overview</h3>
+
+    <div class="overview-grid">
+      <div>
+        <h4>About Us</h4>
+        <p>
+          We deliver innovative IT solutions tailored to meet the needs
+          of businesses across various industries.
+        </p>
+
+        <h4>Our Clients</h4>
+        <p>
+          Trusted by companies like XYZ Corp, Alpha Inc., and Global Enterprises.
+        </p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Cloud Computing</li>
+          <li>Cybersecurity</li>
+          <li>Software Development</li>
+          <li>IT Consulting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <div class="team-card">
+    <h3>Team Members</h3>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="pfp-placeholder"></div>
+        <h4>Sarah Mitchell</h4>
+        <p>CEO</p>
+      </div>
+
+      <div class="team-member">
+        <div class="pfp-placeholder"></div>
+        <h4>David Harper</h4>
+        <p>CTO</p>
+      </div>
+
+      <div class="team-member">
+        <div class="pfp-placeholder"></div>
+        <h4>Emily Stevens</h4>
+        <p>Head of Sales</p>
+      </div>
+    </div>
+  </div>
+
+<!-- AVAILABLE JOBS -->
+<div class="jobs-card">
+  <h3>💼 Available Jobs</h3>
+  <hr>
+
+  <div class="job-item">
+    <div class="job-info">
+      <h4>Frontend Developer Intern</h4>
+      <p>Skills: HTML, CSS, JavaScript</p>
+      <span class="salary">₹15,000 / month</span>
+    </div>
+
+    <div class="job-actions">
+      <button onclick="openJobPopup()">View Details</button>
+      <button class="apply" onclick="applyJob()">Apply</button>
+    </div>
+  </div>
+
+  <div class="job-item">
+    <div class="job-info">
+      <h4>UI/UX Designer</h4>
+      <p>Skills: Figma, Prototyping</p>
+      <span class="salary">₹25,000 / month</span>
+    </div>
+
+    <div class="job-actions">
+      <button onclick="openJobPopup()">View Details</button>
+      <button class="apply" onclick="applyJob()">Apply</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- JOB DETAILS POPUP -->
+<div class="popup" id="jobPopup">
+  <div class="popup-content">
+    <span class="close" onclick="closeJobPopup()">&times;</span>
+    <h3>Frontend Developer Intern</h3>
+    <p><b>Skills Required:</b> HTML, CSS, JavaScript</p>
+    <p><b>Salary:</b> ₹15,000 / month</p>
+    <p><b>Duration:</b> 6 Months</p>
+    <p><b>Description:</b> Work on UI development & responsive layouts.</p>
+  </div>
+</div>
+
+<!-- APPLY CONFIRMATION -->
+<div class="popup" id="applyPopup">
+  <div class="popup-content small">
+    <h3>✅ Application Submitted</h3>
+    <p>Your application has been sent to HR.</p>
+    <button onclick="closeApplyPopup()">OK</button>
+  </div>
+</div>
+
+<script>
+function openJobPopup() {
+  document.getElementById("jobPopup").style.display = "flex";
+}
+
+function closeJobPopup() {
+  document.getElementById("jobPopup").style.display = "none";
+}
+
+function applyJob() {
+  document.getElementById("applyPopup").style.display = "flex";
+}
+
+function closeApplyPopup() {
+  document.getElementById("applyPopup").style.display = "none";
+}
+</script>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const company = params.get("company");
+
+if(company === "techfusion"){
+  document.getElementById("companyName").innerText = "TechFusion Solutions";
+}
+</script>
+
+</body>
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2 class="logo">Placement Drive</h2>
+
+  <ul class="menu">
+    <li onclick="location.href='student-dashboard.html'">
+      <i class="fa-solid fa-house"></i>
+      <span>Dashboard</span>
+    </li>
+
+    <li class="active">
+      <i class="fa-solid fa-building"></i>
+      <span>Company Details</span>
+    </li>
+
+      <li onclick="location.href='applied-jobs.html'">
+       <i class="fa-solid fa-briefcase"></i>
+      <span>Applied Jobs</span>
+    </a>
+    </li>
+
+    <li onclick="location.href='training.html'">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+  </li>
+
+    <li onclick="location.href='notifications.html'">
+      <i class="fa-solid fa-bell"></i>
+      <span>Notifications</span>
+    </li>
+  </ul>
+
+  <ul class="menu logout">
+    <li onclick="location.href='login.html'">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Logout</span>
+    </li>
+  </ul>
+</aside>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Student Applications</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- HR CSS -->
+  <link rel="stylesheet" href="hr-dashboard-css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR (COPY EXACTLY from HR dashboard) -->
+   <aside class="sidebar">
+    <h2 class="logo">
+  <a href="hr-dashboard.html">HR 👨‍💻👩‍💻</a>
+</h2>
+
+    <ul class="menu">
+        <li>
+      <a href="hr-dashboard.html">
+    <i class="fa-solid fa-house"></i>
+    <span>Dashboard</span>
+  </a>
+</li>
+
+<li>
+  <a href="hr-company.html">
+      <i class="fa-solid fa-building"></i>
+      <span>My Company</span>
+    </a>
+    </li>
+
+<li>
+  <a href="manage-jobs.html">
+    <i class="fa-solid fa-briefcase"></i>
+    <span>Job Listings</span>
+  </a>
+</li>
+
+<li>
+  <a href="applications.html">
+    <i class="fa-solid fa-users"></i>
+    <span>Applicants</span>
+  </a>
+</li>
+
+<li>
+  <a href="hr-notifications.html">
+    <i class="fa-solid fa-bell"></i>
+    <span>Notifications</span>
+  </a>
+</li>
+</ul>
+
+<!-- LOGOUT AT BOTTOM -->
+<ul class="menu logout">
+      <li>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="hr-main">
+
+    <h1>📋 All Student Applications</h1>
+
+    <div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="Pending">Pending</button>
+  <button class="filter-btn" data-filter="Shortlisted">Shortlisted</button>
+  <button class="filter-btn" data-filter="Rejected">Rejected</button>
+</div>
+
+<input
+  type="text"
+  class="search-input"
+  placeholder="Search by name or course..."
+
+    <div class="hr-card">
+
+    <div class="table-card">
+      <table class="applications-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Applied On</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Kasturi Tarodkar</td>
+            <td>BCA</td>
+            <td>31/01/2026</td>
+            <td><span class="status pending">Pending</span></td>
+            <td class="actions">
+            <button class="btn-view">View</button>
+            <button class="btn-shortlist">Shortlist</button>
+            <button class="btn-reject">Reject</button>
+          </td>
+        </tr>
+
+          <tr>
+            <td>Shripad Patil</td>
+            <td>B.Tech</td>
+            <td>01/02/2026</td>
+            <td><span class="status shortlisted">Shortlisted</span></td>
+            <td class="actions">
+             <button class="btn-view">View</button>
+             <button class="btn-shortlist">Shortlist</button>
+             <button class="btn-reject">Reject</button>
+           </td>
+          </tr>
+
+          <tr>
+            <td>Raj Yadav</td>
+            <td>B.Sc</td>
+            <td>05/02/2026</td>
+            <td><span class="status rejected">Rejected</span></td>
+            <td class="actions">
+             <button class="btn-view">View</button>
+             <button class="btn-shortlist">Shortlist</button>
+             <button class="btn-reject">Reject</button>
+           </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+    <!-- PAGINATION -->
+<div class="pagination">
+     <span class="page-info">Showing 1–6 of 128 applications</span>
+  <div class="page-controls">
+    <button class="page-btn">← Prev</button>
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <button class="page-btn">Next →</button>
+  </div>
+</div>
+
+  </main>
+</div>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const tableRows = document.querySelectorAll(".applications-table tbody tr");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // Remove active from all
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+
+    tableRows.forEach(row => {
+      const statusText = row.querySelector(".status").innerText;
+
+      if (filter === "all" || statusText === filter) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+});
+
+const searchInput = document.querySelector(".search-input");
+
+searchInput.addEventListener("keyup", () => {
+  const searchValue = searchInput.value.toLowerCase();
+
+  tableRows.forEach(row => {
+    const name = row.children[0].innerText.toLowerCase();
+    const course = row.children[1].innerText.toLowerCase();
+
+    if (name.includes(searchValue) || course.includes(searchValue)) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+});
+
+document.querySelectorAll(".shortlist").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const row = btn.closest("tr");
+    const status = row.querySelector(".status");
+
+    status.innerText = "Shortlisted";
+    status.className = "status shortlisted";
+  });
+});
+
+document.querySelectorAll(".reject").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const row = btn.closest("tr");
+    const status = row.querySelector(".status");
+
+    status.innerText = "Rejected";
+    status.className = "status rejected";
+  });
+});
+
+document.querySelectorAll("tr").forEach(row => {
+  const status = row.querySelector(".status");
+  if (!status) return;
+
+  const actions = row.querySelector(".actions-cell");
+  if (!actions) return;
+
+  if (status.innerText === "Shortlisted") {
+    actions.querySelector(".shortlist")?.remove();
+  }
+
+  if (status.innerText === "Rejected") {
+    actions.querySelector(".shortlist")?.remove();
+    actions.querySelector(".reject")?.remove();
+  }
+});
+
+</script>
+
+<td class="actions">
+  <a href="student-profile.html" class="btn view">View</a>
+  <button class="btn shortlist">Shortlist</button>
+  <button class="btn reject">Reject</button>
+</td>
+</tr>
+
+<script>
+document.querySelectorAll(".actions-cell").forEach(cell => {
+
+  const row = cell.closest("tr");
+  const status = row.querySelector(".status");
+
+  // SHORTLIST BUTTON
+  cell.querySelector(".shortlist")?.addEventListener("click", () => {
+    status.innerText = "Shortlisted";
+    status.className = "status shortlisted";
+    cell.querySelector(".shortlist").remove();
+  });
+
+  // REJECT BUTTON
+  cell.querySelector(".reject")?.addEventListener("click", () => {
+    status.innerText = "Rejected";
+    status.className = "status rejected";
+    cell.querySelector(".shortlist")?.remove();
+    cell.querySelector(".reject").remove();
+  });
+
+});
+</script>
+
+<script>
+  document.querySelectorAll(".btn-view").forEach(button => {
+    button.addEventListener("click", () => {
+      const studentName = button.getAttribute("data-name");
+      localStorage.setItem("selectedStudent", studentName);
+      window.location.href = "student-profile.html";
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+<link rel="stylesheet" href="dashboard-css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2>Student 👩🏻👨🏻</h2>
+
+    <ul class="menu">
+
+  <li class="active">
+    <a href="student-dashboard.html">
+      <i class="fa-solid fa-house"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+
+  <li onclick="location.href='companies.html'">
+  <i class="fa-solid fa-building"></i>
+  Companies
+</li>
+
+  <li>
+    <a href="applied-jobs.html">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>Applied Jobs</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="training.html">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="notifications.html">
+      <i class="fa-solid fa-bell"></i>
+      <span>Notifications</span>
+    </a>
+  </li>
+
+  <li class="logout">
+    <a href="login.html">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Logout</span>
+    </a>
+  </li>
+
+</ul>
+</aside>
+
+
+  <!-- MAIN CONTENT -->
+   <main class="main">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Welcome back, Kasturi 👋</h1>
+    <span class="date" id="currentDateTime"></span>
+
+  </div>
+
+  <!-- FIRST ROW : 3 BOXES -->
+  <div class="top-cards">
+
+    <!-- PERSONAL INFO -->
+    <div class="card">
+      <h3>Personal Information</h3>
+      <hr>
+
+      <div class="profile">
+        <div class="avatar" id="profileAvatar" onclick="pickPhoto()">
+  <span id="avatarText">A</span>
+</div>
+
+<input type="file" id="photoInput" accept="image/*" hidden>
+
+        <div class="info">
+          <p><b>Name:</b> Kasturi Sunil Tarodkar</p>
+          <p><b>Email:</b> kasturitarodkar9@gmail.com</p>
+          <p><b>Phone:</b> +91 9322185472</p>
+          <p><b>Major:</b> Computer Science</p>
+          <p><b>Graduation:</b> 2026</p>
+          <p><b>Skills:</b> HTML, CSS, JavaScript</p>
+          <button onclick="openEdit()">Edit Profile</button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME -->
+    <div class="card">
+      <h3>Resume Upload</h3>
+      <hr>
+      <div class="resume-box">
+        <div class="upload-icon">⬆️</div>
+        <p>Alex_Resume_2026.pdf</p>
+        <button class="upload" onclick="pickResume()">Upload Resume</button>
+        <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" hidden>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+     <div class="card" id="notifications">
+  <h3>Notifications</h3>
+  <hr>
+
+  <div class="notification-list">
+    <div class="notification-item">
+      <span class="dot interview"></span>
+      <p>Interview scheduled with <b>Google</b></p>
+      <small>Jan 30 · 10:00 AM</small>
+    </div>
+
+    <div class="notification-item">
+      <span class="dot update"></span>
+      <p>Your resume was viewed by <b>Stripe</b></p>
+      <small>Today</small>
+    </div>
+
+    <div class="notification-item">
+      <span class="dot new"></span>
+      <p>New training added: <b>React Basics</b></p>
+      <small>1 day ago</small>
+    </div>
+
+    <div class="notification-item">
+      <span class="dot update"></span>
+      <p>Status updated for <b>UX Intern</b></p>
+      <small>2 days ago</small>
+    </div>
+  </div>
+<a href="notifications.html" class="view-all">View all notifications</a>
+</div>
+
+  <!-- SECOND ROW -->
+   <div class="card full" id="applied">
+  <h3>Applied Jobs</h3>
+  <hr>
+
+  <table class="applied-table">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Applied On</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>UX Intern</td>
+        <td>20 Jan 2026</td>
+        <td><span class="status selected">Selected</span></td>
+      </tr>
+
+      <tr>
+        <td>Stripe</td>
+        <td>Frontend Developer</td>
+        <td>18 Jan 2026</td>
+        <td><span class="status review">Under Review</span></td>
+      </tr>
+
+      <tr>
+        <td>Amazon</td>
+        <td>UI Designer</td>
+        <td>15 Jan 2026</td>
+        <td><span class="status rejected">Rejected</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="applied-jobs.html" class="view-all">View all applied jobs →</a>
+</div>
+
+  <div class="card full" id="training">
+  <h3>Training</h3>
+    <hr>
+    <p>Web Development Bootcamp – <b>70% Completed</b></p>
+    <a href="training.html" class="view-all">View all training →</a>
+  </div>
+
+</main>
+
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div id="editModal" class="modal">
+  <div class="modal-box">
+    <h3>Edit Profile</h3>
+
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="Phone">
+    <input type="text" placeholder="Major">
+    <input type="text" placeholder="Skills">
+
+    <div class="modal-actions">
+      <button class="cancel" onclick="closeModal()">Cancel</button>
+      <button class="save" onclick="closeModal()">Save</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function openModal() {
+  document.getElementById("editModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("editModal").style.display = "none";
+}
+</script>
+
+<script>
+function saveProfile() {
+  const photoInput = document.getElementById("photoInput");
+  const profilePhoto = document.getElementById("profilePhoto");
+
+  // If user selected a photo
+  if (photoInput.files.length > 0) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      profilePhoto.src = reader.result;
+    };
+    reader.readAsDataURL(photoInput.files[0]);
+  }
+
+  // Close modal after save
+  closeModal();
+}
+</script>
+
+<script>
+function openPhotoPicker() {
+  document.getElementById("photoInput").click();
+}
+
+document.getElementById("photoInput").addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.onload = () => {
+    document.getElementById("profilePhoto").src = reader.result;
+  };
+  reader.readAsDataURL(this.files[0]);
+});
+</script>
+
+<script>
+const user = JSON.parse(localStorage.getItem("loggedUser"));
+
+if (!user) {
+  window.location.href = "login.html";
+} else {
+  document.getElementById("username").innerText = user.name.split(" ")[0];
+  document.getElementById("name").innerText = user.name;
+  document.getElementById("email").innerText = user.email;
+  document.getElementById("phone").innerText = user.phone;
+  document.getElementById("major").innerText = user.major;
+  document.getElementById("graduation").innerText = user.graduation;
+  document.getElementById("skills").innerText = user.skills;
+}
+</script>
+
+<script>
+function pickPhoto() {
+  document.getElementById("photoInput").click();
+}
+
+document.getElementById("photoInput").addEventListener("change", function () {
+  const file = this.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const avatar = document.getElementById("profileAvatar");
+    avatar.style.backgroundImage = `url(${reader.result})`;
+    avatar.style.backgroundSize = "cover";
+    avatar.style.backgroundPosition = "center";
+    document.getElementById("avatarText").style.display = "none";
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+
+<!-- Edit Profile Modal -->
+<div class="edit-modal" id="editModal">
+  <div class="edit-box">
+    <h3>Edit Profile</h3>
+
+    <label>Name</label>
+    <input type="text" placeholder="Your name">
+
+    <label>Email</label>
+    <input type="email" placeholder="Your email">
+
+    <label>Phone</label>
+    <input type="text" placeholder="Your phone">
+
+    <label>Skills</label>
+    <input type="text" placeholder="Your skills">
+
+    <div class="edit-actions">
+      <button class="cancel-btn" onclick="closeEdit()">Cancel</button>
+      <button class="save-btn" onclick="closeEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openEdit() {
+  document.getElementById("editModal").style.display = "flex";
+}
+
+function closeEdit() {
+  document.getElementById("editModal").style.display = "none";
+}
+</script>
+
+<script>
+function pickResume() {
+  document.getElementById("resumeInput").click();
+}
+
+document.getElementById("resumeInput").addEventListener("change", function () {
+  if (this.files.length > 0) {
+    document.querySelector(".resume-box p").innerText = this.files[0].name;
+  }
+});
+</script>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+
+    const options = {
+      weekday: 'long',
+      month: 'short',
+      day: 'numeric'
+    };
+
+    const date = now.toLocaleDateString('en-US', options);
+    const time = now.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit'
+    });
+
+    document.getElementById('currentDateTime').innerText =
+      `${date} · ${time}`;
+  }
+
+  updateDateTime();
+</script>
+
+</body>
+</html>
+

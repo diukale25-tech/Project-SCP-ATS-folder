@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Companies</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="company-list-css/style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+  <aside class="sidebar">
+  <h2>Student 👩🏻‍🎓 👨🏻‍🎓</h2>
+
+  <ul class="menu">
+
+    <li onclick="location.href='student-dashboard.html'">
+      <i class="fa-solid fa-house"></i>
+      Dashboard
+    </li>
+
+    <li onclick="location.href='companies.html'" class="active">
+      <i class="fa-solid fa-building"></i>
+      Companies
+    </li>
+
+    <li onclick="location.href='applied-jobs.html'">
+      <i class="fa-solid fa-briefcase"></i>
+      Applied Jobs
+    </li>
+
+    <li onclick="location.href='training.html'">
+      <i class="fa-solid fa-graduation-cap"></i>
+      Training
+    </li>
+
+    <li onclick="location.href='notifications.html'">
+      <i class="fa-solid fa-bell"></i>
+      Notifications
+    </li>
+  </ul>
+  
+    <ul class="menu logout">
+    <li onclick="location.href='login.html'">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Logout</span>
+    </li>
+  </ul>
+</aside>
+
+<!-- MAIN -->
+<main class="company-list-container">
+
+  <div class="header">
+    <h1>🏢 Explore Companies</h1>
+    <p>Browse companies and view details</p>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+   <input type="text" id="companySearch" placeholder="Search companies...">
+  </div>
+
+  <!-- COMPANY GRID -->
+  <div class="company-grid">
+
+    <p id="noResults" class="no-results">
+  ❌ No companies found
+</p>
+
+    <div class="company-card">
+      <div class="company-icon">TF</div>
+      <h3>TechFusion Solutions</h3>
+      <p class="industry">IT Services</p>
+      <p class="desc">Innovative software & web solutions.</p>
+      <button onclick="location.href='company-details.html'">
+        View Details
+      </button>
+    </div>
+
+    <div class="company-card">
+      <div class="company-icon">NX</div>
+      <h3>Nexora Analytics</h3>
+      <p class="industry">Data & AI</p>
+      <p class="desc">Data-driven intelligence systems.</p>
+      <button onclick="location.href='company-details.html'">
+        View Details
+      </button>
+    </div>
+
+    <div class="company-card">
+      <div class="company-icon">FS</div>
+      <h3>FinSolve Corp</h3>
+      <p class="industry">Finance</p>
+      <p class="desc">Smart financial tech platforms.</p>
+      <button onclick="location.href='company-details.html'">
+        View Details
+      </button>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+const searchInput = document.getElementById("companySearch");
+const companyCards = document.querySelectorAll(".company-card");
+const noResults = document.getElementById("noResults");
+
+searchInput.addEventListener("keyup", function () {
+  const value = searchInput.value.toLowerCase();
+  let visibleCount = 0;
+
+  companyCards.forEach(card => {
+    const name = card.querySelector("h3").innerText.toLowerCase();
+
+    if (name.includes(value)) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  if (visibleCount === 0) {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
+  }
+});
+</script>
+
+<script>
+function openCompany(companyId) {
+  location.href = "company-details.html?company=" + companyId;
+}
+</script>
+
+</body>
+</html>

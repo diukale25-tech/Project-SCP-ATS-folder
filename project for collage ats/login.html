@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Lottie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div id="lottie"></div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right glass">
+
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Login to continue</p>
+
+    <form onsubmit="loginUser(event)">
+
+      <input type="text" placeholder="Email or Phone" required>
+      <input type="password" placeholder="Password" required>
+
+      <a href="forgot-password.html" class="forgot">Forgot password?</a>
+
+      <button type="submit">Login</button>
+
+      <p class="switch">
+        Don’t have an account?
+        <a href="register.html">Register</a>
+      </p>
+    </form>
+
+  </div>
+</div>
+
+<script src="js/lottie.js"></script>
+
+<script>
+function loginUser() {
+  window.location.href = "student-dashboard.html";
+}
+</script>
+<script>
+function loginUser(event) {
+  event.preventDefault();
+
+  const role = localStorage.getItem("userRole");
+
+  if (!role) {
+    alert("No role found. Please register first.");
+    return;
+  }
+
+  if (role === "Student") {
+    window.location.href = "student-dashboard.html";
+  } 
+  else if (role === "HR") {
+    window.location.href = "hr-dashboard.html";
+  } 
+  else if (role === "Placement Drive") {
+    window.location.href = "company-details.html";
+  }
+}
+</script>
+
+</body>
+</html>

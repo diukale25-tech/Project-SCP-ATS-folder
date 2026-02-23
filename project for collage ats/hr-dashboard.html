@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HR Dashboard</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- HR Dashboard CSS -->
+  <link rel="stylesheet" href="hr-dashboard-css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">
+  <a href="hr-dashboard.html">HR 👨‍💻👩‍💻</a>
+</h2>
+
+    <ul class="menu">
+        <li>
+      <a href="hr-dashboard.html">
+    <i class="fa-solid fa-house"></i>
+    <span>Dashboard</span>
+  </a>
+</li>
+
+<li>
+  <a href="hr-company.html">
+      <i class="fa-solid fa-building"></i>
+      <span>My Company</span>
+    </a>
+    </li>
+
+<li>
+  <a href="manage-jobs.html">
+    <i class="fa-solid fa-briefcase"></i>
+    <span>Job Listings</span>
+  </a>
+</li>
+
+<li>
+  <a href="applications.html">
+    <i class="fa-solid fa-users"></i>
+    <span>Applicants</span>
+  </a>
+</li>
+
+<li>
+  <a href="hr-notifications.html">
+    <i class="fa-solid fa-bell"></i>
+    <span>Notifications</span>
+  </a>
+</li>
+</ul>
+
+<!-- LOGOUT AT BOTTOM -->
+<ul class="menu logout">
+      <li>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="hr-main">
+
+    <!-- HEADER -->
+    <div class="hr-header">
+      <h1>Hello HR👋</h1>
+    </div>
+    
+    <!-- CARDS WRAPPER -->
+<div class="hr-cards">
+
+  <!-- ROW 1 -->
+  <div class="cards-row">
+
+    <!-- PROFILE CARD -->
+    <div class="hr-card profile-card">
+      <h3>My Profile</h3>
+      <hr>
+
+      <div class="profile-content">
+        <div class="profile-box">
+          <img src="images/default-hr.png" id="profilePhoto">
+          <input type="file" id="photoInput" accept="image/*" hidden>
+        </div>
+
+        <div class="profile-info">
+          <h4>John Doe</h4>
+          <p class="role">HR Manager</p>
+          <p>📧 john.doe@example.com</p>
+          <p>📍 New York, NY</p>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn primary" id="editProfileBtn">Edit Profile</button>
+        <button class="btn secondary" id="viewProfileBtn">View Profile</button>
+      </div>
+    </div>
+
+    <!-- JOB MANAGEMENT CARD -->
+    <div class="hr-card job-management">
+      <h3>Job Management</h3>
+      <hr>
+
+      <div class="job-buttons">
+        <button class="btn primary" id="createJobBtn">Create Job Posting</button>
+        <button class="btn secondary" id="manageJobsBtn">Manage Job Listings</button>
+      </div>
+
+      <h4 class="recent-title">Recent Jobs Posted</h4>
+      <ul class="recent-jobs">
+        <li>Frontend Developer Intern</li>
+        <li>UI/UX Designer</li>
+        <li>Data Analyst</li>
+      </ul>
+    </div>
+
+    <!-- APPLICATIONS CARD -->
+    <div class="hr-card applications-card">
+      <h3>Student Applications</h3>
+      <hr>
+
+      <p>Total Applications: <b>128</b></p>
+
+      <table class="applications-table">
+        <tr>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Applied On</th>
+        </tr>
+        <tr>
+          <td>Kasturi Tarodkar</td>
+          <td>BCA</td>
+          <td>31/01/2026</td>
+        </tr>
+        <tr>
+          <td>Shripad Patil</td>
+          <td>B.Tech</td>
+          <td>01/02/2026</td>
+        </tr>
+        <tr>
+          <td>Raj Yadav</td>
+          <td>B.Sc</td>
+          <td>01/05/2026</td>
+        </tr>
+      </table>
+
+      <a href="applications.html" class="view-all-btn">View All Applications</a>
+    </div>
+
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="cards-row">
+
+    <!-- SHORTLISTING CARD -->
+    <div class="hr-card shortlisting-card">
+      <h3>Shortlisting Status</h3>
+      <hr>
+
+      <div class="status-summary">
+        <div class="status-box green">
+          Shortlisted<br><strong>25</strong>
+        </div>
+        <div class="status-box red">
+          Rejected<br><strong>15</strong>
+        </div>
+        <div class="status-box blue">
+          Interviews<br><strong>8</strong>
+        </div>
+      </div>
+
+      <div class="status-list">
+        <div>➕ Interview with Sarah Lee – 12/02/2024</div>
+        <div>❌ John Miller – Rejected</div>
+        <div>✔ Michael Brown – Shortlisted</div>
+      </div>
+    </div>
+
+    <!-- PLACEMENT NOTIFICATION CARD -->
+    <div class="hr-card placement-card">
+      <h3>Placement Notifications</h3>
+      <hr>
+
+      <div class="notify-item blue">
+        📢 Congrats! Interview scheduled on 12/02/2026.
+      </div>
+
+      <div class="notify-item green">
+        🟢 Please join the orientation session on 11/03/2026.
+      </div>
+
+      <div class="notify-item red">
+        🔔 Offer letter sent. Please review and confirm.
+      </div>
+
+      <a href="hr-notifications.html" class="view-all-btn">
+        View All Notifications
+      </a>
+    </div>
+
+  </div>
+
+</div>
+</div> 
+
+<div class="modal" id="editProfileModal">
+  <div class="modal-content">
+    <h3>Edit Profile</h3>
+
+    <input type="text" id="editName" placeholder="Full Name">
+    <input type="text" id="editRole" placeholder="Role">
+    <input type="email" id="editEmail" placeholder="Email">
+    <input type="text" id="editLocation" placeholder="Location">
+
+    <div class="modal-actions">
+      <button class="btn secondary" id="cancelEdit">Cancel</button>
+      <button class="btn primary" id="saveEdit">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+/* PROFILE PHOTO UPLOAD */
+const profilePhoto = document.getElementById("profilePhoto");
+const photoInput = document.getElementById("photoInput");
+
+profilePhoto.onclick = () => {
+  photoInput.click();
+};
+
+photoInput.onchange = () => {
+  const file = photoInput.files[0];
+  if (file) {
+    profilePhoto.src = URL.createObjectURL(file);
+  }
+};
+
+/* EDIT PROFILE MODAL */
+const editBtn = document.getElementById("editProfileBtn");
+const modal = document.getElementById("editProfileModal");
+const cancelBtn = document.getElementById("cancelEdit");
+const saveBtn = document.getElementById("saveEdit");
+
+const nameText = document.querySelector(".profile-info h4");
+const roleText = document.querySelector(".profile-info .role");
+const emailText = document.querySelector(".profile-info p:nth-of-type(2)");
+const locationText = document.querySelector(".profile-info p:nth-of-type(3)");
+
+const editName = document.getElementById("editName");
+const editRole = document.getElementById("editRole");
+const editEmail = document.getElementById("editEmail");
+const editLocation = document.getElementById("editLocation");
+
+editBtn.onclick = () => {
+  editName.value = nameText.innerText;
+  editRole.value = roleText.innerText;
+  editEmail.value = emailText.innerText.replace("📧 ", "");
+  editLocation.value = locationText.innerText.replace("📍 ", "");
+  modal.style.display = "flex";
+};
+
+cancelBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+saveBtn.onclick = () => {
+  nameText.innerText = editName.value;
+  roleText.innerText = editRole.value;
+  emailText.innerText = "📧 " + editEmail.value;
+  locationText.innerText = "📍 " + editLocation.value;
+  modal.style.display = "none";
+};
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const viewBtn = document.getElementById("viewProfileBtn");
+  const viewModal = document.getElementById("viewProfileModal");
+  const closeView = document.getElementById("closeView");
+
+  const viewPhoto = document.getElementById("viewProfilePhoto");
+  const viewName = document.getElementById("viewName");
+  const viewRole = document.getElementById("viewRole");
+  const viewEmail = document.getElementById("viewEmail");
+  const viewLocation = document.getElementById("viewLocation");
+
+  // Safety check
+  if (!viewBtn) {
+    console.error("View Profile button not found");
+    return;
+  }
+
+  viewBtn.onclick = function () {
+    viewPhoto.src = profilePhoto.src;
+    viewName.innerText = nameText.innerText;
+    viewRole.innerText = roleText.innerText;
+    viewEmail.innerText = emailText.innerText;
+    viewLocation.innerText = locationText.innerText;
+
+    viewModal.style.display = "flex";
+  };
+
+  closeView.onclick = function () {
+    viewModal.style.display = "none";
+  };
+
+});
+
+// CREATE JOB MODAL
+document.addEventListener("DOMContentLoaded", function () {
+
+  const createJobBtn = document.getElementById("createJobBtn");
+  const createJobModal = document.getElementById("createJobModal");
+  const cancelJob = document.getElementById("cancelJob");
+
+  const manageJobsBtn = document.getElementById("manageJobsBtn");
+
+  if (createJobBtn) {
+    createJobBtn.onclick = () => {
+      createJobModal.style.display = "flex";
+    };
+  }
+
+  if (cancelJob) {
+    cancelJob.onclick = () => {
+      createJobModal.style.display = "none";
+    };
+  }
+
+  if (manageJobsBtn) {
+    manageJobsBtn.onclick = () => {
+      window.location.href = "manage-jobs.html";
+    };
+  }
+
+});
+</script>
+
+<!-- VIEW PROFILE MODAL -->
+<div class="modal" id="viewProfileModal">
+  <div class="modal-content">
+    <h3>Profile Details</h3>
+
+    <div class="view-profile-box">
+      <img id="viewProfilePhoto" src="" alt="Profile Photo">
+
+      <p id="viewName"></p>
+      <p id="viewRole"></p>
+      <p id="viewEmail"></p>
+      <p id="viewLocation"></p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn primary" id="closeView">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE JOB MODAL -->
+<div class="modal" id="createJobModal">
+  <div class="modal-content">
+    <h3>Create Job Posting</h3>
+
+    <input type="text" placeholder="Job Title">
+    <input type="text" placeholder="Department">
+    <input type="text" placeholder="Location">
+    <textarea placeholder="Job Description"></textarea>
+
+    <div class="modal-actions">
+      <button class="btn secondary" id="cancelJob">Cancel</button>
+      <button class="btn primary">Post Job</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1419 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #f9c5d1, #dcd6f7);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: #fbc2eb;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* MENU */
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* PINK GLOW HOVER (same as student dashboard) */
+.menu li:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+}
+
+/* ACTIVE */
+.menu li.active {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+  font-weight: 500;
+}
+
+.menu {
+  list-style: none;
+}
+
+/* ICON */
+.menu li i {
+  font-size: 18px;
+}
+
+/* LOGOUT SECTION */
+.logout {
+  margin-top: auto;
+}
+
+.logout li:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+}
+
+/* TEXT + ICON GLOW ON HOVER */
+.menu li:hover span,
+.menu li:hover i {
+  color: #ff4fa2;
+  text-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+}
+
+/* ACTIVE ITEM TEXT GLOW */
+.menu li.active span,
+.menu li.active i {
+  color: #ff4fa2;
+  text-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+}
+
+/* LOGOUT TEXT GLOW */
+.logout li:hover span,
+.logout li:hover i {
+  color: #ff4fa2;
+  text-shadow: 0 4px 12px rgba(255, 79, 162, 0.35);
+}
+
+.hr-main {
+  margin-left: 260px;
+  padding: 30px;
+}
+
+.hr-header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.hr-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.hr-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 200px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.profile-card hr {
+  margin: 12px 0;
+  opacity: 0.3;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.profile-info .role {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.profile-info p {
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn.primary {
+  background: #ff5fa2;
+  color: white;
+}
+
+.btn.secondary {
+  background: #ffe3ef;
+  color: #ff5fa2;
+}
+
+.profile-photo-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-box img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #ff8fc7;
+}
+
+.profile-photo-wrapper:hover img {
+  filter: brightness(0.85);
+}
+
+#photoInput {
+  display: none;
+}
+
+.profile-content {
+  display: block
+  ;
+  align-items: center;
+  gap: 20px;
+}
+
+/* MODAL BACKGROUND */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* MODAL BOX */
+.modal-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-content {
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.view-profile-box {
+  text-align: center;
+}
+
+.view-profile-box img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #ff8fc7;
+}
+
+.view-profile-box p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.job-card hr {
+  margin: 12px 0;
+  opacity: 0.3;
+}
+
+.job-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.job-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.job-list li {
+  font-size: 14px;
+  padding: 6px 0;
+  color: #555;
+}
+
+.job-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 6px 0 8px;
+  color: #777;
+}
+
+.job-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sub-title {
+  margin: 12px 0 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.job-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.job-list li {
+  padding: 6px 0;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.hr-card hr {
+  margin-bottom: 16px;
+}
+
+.hr-card h3 {
+  margin-bottom: 10px;
+}
+
+.hr-card hr {
+  margin-top: 12px;
+  margin-bottom: 18px;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  resize: none;
+  height: 90px;
+  margin-bottom: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f6f8fb;
+  padding: 40px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #ff8fc7;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.applications-card hr {
+  border: none;
+  border-top: 1px solid #e6e6e6;
+  margin: 10px 0 12px;
+}
+
+.applications-top {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.applications-top p {
+  font-size: 14px;
+  color: #555;
+}
+
+.applications-top .actions i {
+  font-size: 14px;
+  color: #999;
+  background: #eef1f5;
+  padding: 6px;
+  border-radius: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.applications-table th {
+  text-align: left;
+  font-size: 13px;
+  color: #777;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.applications-table td {
+  font-size: 14px;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.applications-table tr:last-child td {
+  border-bottom: none;
+}
+
+.total-apps {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.applications-table th {
+  text-align: left;
+  font-size: 13px;
+  color: #777;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.applications-table td {
+  font-size: 14px;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.applications-table th:nth-child(1),
+.applications-table td:nth-child(1) {
+  width: 45%;
+}
+
+.applications-table th:nth-child(2),
+.applications-table td:nth-child(2) {
+  width: 25%;
+}
+
+.applications-table th:nth-child(3),
+.applications-table td:nth-child(3) {
+  width: 30%;
+}
+
+.view-all-btn {
+  margin-top: 14px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ffd6e8;
+  color: #ff4f8b;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.recent-jobs {
+  margin-top: 12px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.recent-title {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.recent-jobs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-jobs li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
+  position: relative;
+  padding-left: 16px;
+}
+
+.recent-jobs li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ff6aa2;
+  font-size: 18px;
+}
+
+/* ===============================
+   APPLICATIONS PAGE STYLING
+================================ */
+
+.hr-main h1 {
+  margin-bottom: 20px;
+}
+
+/* Table container card */
+.hr-card {
+  padding: 20px;
+}
+
+/* Applications table */
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.applications-table thead th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.applications-table tbody td {
+  font-size: 14px;
+  color: #333;
+  padding: 14px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.applications-table tr td {
+  padding: 10px 12px;   /* was probably 16px+ */
+  font-size: 14px;
+}
+
+.applications-card {
+  padding: 20px;
+}
+
+/* Row hover */
+.applications-table tbody tr:hover {
+  background: #fff5fa;
+}
+
+/* Status badges */
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.shortlisted {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.status.rejected {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.page-info {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.page-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ffe4f0;
+  color: #ff4f9a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.page-btn:hover {
+  background: #ff4f9a;
+  color: white;
+}
+
+.page-btn.active {
+  background: #ff4f9a;
+  color: white;
+}
+
+.applications-table tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pagination button:hover {
+  background: #ff5fa2;
+  color: #fff;
+}
+
+.pagination button:hover {
+  background: #ff5fa2;
+  color: #fff;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #f1f1f1;
+  color: #555;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #ffd6e8;
+  color: #ff4f9a;
+}
+
+.filter-btn.active {
+  background: #ff4f9a;
+  color: white;
+}
+
+.search-input {
+  width: 260px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  margin-bottom: 16px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #ff4f9a;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 6px;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-btn.view {
+  background: #e9ecef;
+  color: #333;
+}
+
+.action-btn.shortlist {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.action-btn.reject {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
+.action-btn:hover {
+  opacity: 0.85;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.shortlisted {
+  background: #e6f7ec;
+  color: #1e7e34;
+}
+
+.status.rejected {
+  background: #fdecea;
+  color: #dc3545;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions a,
+.actions button {
+  white-space: nowrap;
+}
+
+/* ACTION BUTTONS */
+.action-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;   /* removes underline */
+  background: #f1f1f1;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: #ffe3f0;
+  color: #ff4f9a;
+}
+
+th.actions-title {
+  padding-left: 20px;
+}
+
+.view-all-btn {
+  margin-top: 16px;   /* adjust to 12px / 18px if needed */
+}
+
+.view-all-btn {
+  display: inline-block;   /* ⭐ MOST IMPORTANT */
+  margin-top: 16px;        /* moves it down */
+  padding: 10px 18px;
+
+  background: #ffd6e7;
+  color: #ff4d8d;
+  border-radius: 12px;
+
+  text-decoration: none;   /* removes underline */
+  font-weight: 500;
+}
+
+/* Actions column layout */
+td.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Common button style */
+.actions button {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #f1f1f1;
+  transition: all 0.2s ease;
+}
+
+/* View button */
+.actions .btn-view {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.actions .btn-view:hover {
+  background: #e4e4e4;
+}
+
+/* Shortlist button */
+.actions .btn-shortlist {
+  background: #e6f6eb;
+  color: #1a7f37;
+}
+
+.actions .btn-shortlist:hover {
+  background: #d2f0dc;
+}
+
+/* Reject button */
+.actions .btn-reject {
+  background: #fde8e8;
+  color: #d92d20;
+}
+
+.actions .btn-reject:hover {
+  background: #fbd1d1;
+}
+
+.sidebar {
+  width: 260px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+}
+
+.main-content {
+  margin-left: 260px; /* Same as your sidebar width */
+}
+
+.applications-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+table {
+  display: table !important;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tbody {
+  display: table-row-group;
+}
+
+tr {
+  display: table-row;
+}
+
+th, td {
+  display: table-cell;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+/* WHITE CARD AROUND TABLE */
+.table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+/* TABLE BASE */
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* TABLE HEAD */
+.applications-table thead th {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* TABLE ROWS */
+.applications-table tbody tr {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* TABLE CELLS */
+.applications-table td {
+  padding: 14px 0;
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+}
+
+/* LAST ROW NO BORDER */
+.applications-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Fix uneven table column spacing */
+.applications-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.applications-table th,
+.applications-table td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Column widths */
+.applications-table th:nth-child(1),
+.applications-table td:nth-child(1) {
+  width: 30%; /* Name */
+}
+
+.applications-table th:nth-child(2),
+.applications-table td:nth-child(2) {
+  width: 15%; /* Course */
+}
+
+.applications-table th:nth-child(3),
+.applications-table td:nth-child(3) {
+  width: 15%; /* Applied On */
+}
+
+.applications-table th:nth-child(4),
+.applications-table td:nth-child(4) {
+  width: 15%; /* Status */
+}
+
+.applications-table th:nth-child(5),
+.applications-table td:nth-child(5) {
+  width: 25%; /* Actions */
+}
+
+/* Shortlisting Status Card */
+.shortlisting-card {
+  padding: 20px;
+}
+
+/* Summary boxes */
+.status-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.status-box {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+}
+
+.status-box strong {
+  display: block;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+/* Colors */
+.status-box.green { background: #4caf50; }
+.status-box.red { background: #f44336; }
+.status-box.blue { background: #2196f3; }
+
+/* Activity list */
+.status-list {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+/* Icons */
+.status-item .icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.icon.green { background: #4caf50; }
+.icon.red { background: #f44336; }
+.icon.blue { background: #2196f3; }
+
+/* Shortlisting card size fix */
+.shortlisting-card {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Summary boxes row */
+.status-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Smaller boxes */
+.status-box {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Softer theme colors */
+.status-box.green {
+  background: #e8f8ee;
+  color: #2e7d32;
+}
+
+.status-box.red {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.status-box.blue {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-box strong {
+  display: block;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+/* Activity list smaller */
+.status-list {
+  margin-top: 10px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+/* Icons soft */
+.status-item .icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.icon.green { background: #66bb6a; }
+
+/* Fix shortlisting card width */
+.shortlisting-card {
+  width: 100%;
+}
+
+/* Parent grid must allow 2 cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.second-row {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.shortlisting-status hr {
+  border: none;
+  height: 1px;
+  background-color: #eaeaea;
+  margin: 10px 0 20px;
+}
+
+.placement-card {
+  padding: 20px;
+}
+
+.notify-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  font-size: 14px;
+}
+
+.notify-item span {
+  font-size: 18px;
+}
+
+.notify-item.blue {
+  border-left: 4px solid #4a90e2;
+}
+
+.notify-item.green {
+  border-left: 4px solid #4caf50;
+}
+
+.notify-item.red {
+  border-left: 4px solid #ff4d4d;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff69b4;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+/* Notifications Page */
+.notification-card {
+  background: #fff;
+  padding: 20px;
+}
+
+/* ===============================
+   HR Notifications Page CSS
+   =============================== */
+
+/* Layout */
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+  background: #f7f8fc;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Page Heading */
+.main-content h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Notification Card */
+.notification-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  width: 100%;
+}
+
+
+/* Individual Notification */
+.notify-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+/* Icon */
+.notify-item span {
+  font-size: 20px;
+}
+
+/* Color Variants */
+.notify-item.blue {
+  border-left: 4px solid #ff69b4;
+  background: #fff1f7;
+}
+
+.notify-item.green {
+  border-left: 4px solid #7ddc9a;
+  background: #ecfff3;
+}
+
+.notify-item.red {
+  border-left: 4px solid #ff8a8a;
+  background: #fff1f1;
+}
+
+/* Text */
+.notify-item p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Sidebar fixed */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #ffd1ec, #ffc0e3);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu li:hover {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 15px rgba(255,105,180,0.6);
+}
+
+.menu li.active {
+  background: #ffffff;
+  color: #ff4da6;
+  box-shadow: 0 8px 20px rgba(255,105,180,0.5);
+}
+
+.menu li i {
+  font-size: 16px;
+}
+
+.menu.logout {
+  margin-top: auto;
+}
+
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;              /* THIS fixes uneven spacing */
+  align-items: stretch;  /* Ensures cards align properly */
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.view-all-btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 18px;
+  background: #ffd6e8;
+  color: #ff4f9a;
+  border-radius: 12
+}
+
+/* HR DASHBOARD CARD GRID FIX */
+
+.hr-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* each row */
+.cards-row {
+  display: grid;
+  gap: 25px;
+}
+
+/* first row: 3 cards */
+.cards-row:first-child {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* second row: 2 cards */
+.cards-row:last-child {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* equal height */
+.hr-card {
+  height: 100%;
+}
+
+.hr-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start; /* 👈 THIS LINE FIXES IT */
+}

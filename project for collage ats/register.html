@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Lottie Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT SIDE (Animation) -->
+  <div class="left">
+    <div id="lottie"></div>
+  </div>
+
+  <!-- RIGHT SIDE (Register Form) -->
+  <div class="right glass">
+
+    <h2>Create Account</h2>
+    <p class="subtitle">Start your journey with us</p>
+
+    <form onsubmit="registerUser(event)">
+
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Email or Phone" required>
+      <input type="password" placeholder="Password" required>
+
+      <select id="role" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="Student">Student</option>
+        <option value="HR">HR</option>
+        <option value="Placement Drive">Placement Drive</option>
+      </select>
+
+      <div class="btn-group">
+        <button type="submit">Register</button>
+        <button type="reset">Clear</button>
+      </div>
+
+      <p class="switch">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </p>
+    </form>
+
+  </div>
+</div>
+
+<!-- Lottie JS -->
+<script src="js/lottie.js"></script>
+
+<!-- REGISTER SCRIPT -->
+<script>
+function registerUser() {
+  const role = document.getElementById("role").value;
+
+  if (!role) {
+    alert("Please select a role");
+    return;
+  }
+
+  // Frontend-only redirect (backend will handle later)
+  window.location.href = "student-dashboard.html";
+}
+</script>
+
+<script>
+function registerUser(event) {
+  event.preventDefault();
+
+  const role = document.querySelector("select").value;
+
+  if (!role) {
+    alert("Please select a role");
+    return;
+  }
+
+  localStorage.setItem("userRole", role);
+
+  if (role === "Student") {
+    window.location.href = "student-dashboard.html";
+  } 
+  else if (role === "HR") {
+    window.location.href = "hr-dashboard.html";
+  } 
+  else if (role === "Placement Drive") {
+    window.location.href = "company-details.html";
+  }
+}
+</script>
+
+</body>
+</html>

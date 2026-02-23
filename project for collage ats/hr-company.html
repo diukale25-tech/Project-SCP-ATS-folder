@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Company Management</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="hr-company-css/style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+ <aside class="sidebar">
+  <h2 class="logo">HR 🧑🏻‍💼</h2>
+
+  <ul class="menu">
+    <li onclick="location.href='hr-dashboard.html'">
+      <i class="fa-solid fa-house"></i>
+      Dashboard
+    </li>
+
+    <li class="active">
+      <i class="fa-solid fa-building"></i>
+      My Company
+    </li>
+
+ <li onclick="location.href='manage-jobs.html'">
+      <i class="fa-solid fa-briefcase"></i>
+      Job Listings
+    </li>
+    
+    <li onclick="location.href='applications.html'">
+      <i class="fa-solid fa-users"></i>
+      Applicants
+    </li>
+
+    <li onclick="location.href='hr-notifications.html'">
+      <i class="fa-solid fa-bell"></i>
+      Notifications
+    </li>
+
+   <li class="logout">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+  </li>
+</ul>
+</aside>
+
+<!-- MAIN -->
+<main class="company-container">
+
+  <div class="header">
+    <h1>🏢 Company Management</h1>
+    <p>Update and manage your company profile</p>
+  </div>
+
+  <!-- COMPANY INFO -->
+  <div class="card">
+    <h3>Company Information</h3>
+    <hr>
+
+    <div class="grid">
+      <div class="field">
+        <label>Company Name</label>
+        <input type="text" value="TechFusion Solutions">
+      </div>
+
+      <div class="field">
+        <label>Industry</label>
+        <input type="text" value="IT Services">
+      </div>
+
+      <div class="field">
+        <label>Founded Year</label>
+        <input type="text" value="2018">
+      </div>
+
+      <div class="field">
+        <label>Employees</label>
+        <input type="text" value="120">
+      </div>
+
+      <div class="field">
+        <label>Revenue</label>
+        <input type="text" value="₹5M">
+      </div>
+
+      <div class="field">
+        <label>Website</label>
+        <input type="text" value="www.techfusion.com">
+      </div>
+
+      <div class="field full">
+        <label>Address</label>
+        <input type="text" value="Mumbai, India">
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card">
+  <h3>Contact Information</h3>
+
+  <div class="form-grid">
+    <label>Phone</label>
+    <input type="text" id="companyPhone" placeholder="Enter phone number">
+
+    <label>Email</label>
+    <input type="email" id="companyEmail" placeholder="Enter email">
+
+    <label>Address</label>
+    <input type="text" id="companyAddress" placeholder="Enter address">
+
+    <label>Website</label>
+    <input type="text" id="companyWebsite" placeholder="Enter website">
+
+    <label>LinkedIn</label>
+    <input type="text" id="companyLinkedin" placeholder="Enter LinkedIn URL">
+  </div>
+</div>
+
+  <!-- DESCRIPTION -->
+  <div class="card">
+    <h3>Company Description</h3>
+    <hr>
+
+    <div class="field">
+      <label>About Company</label>
+      <textarea rows="3">Innovative software & web solutions provider.</textarea>
+    </div>
+
+    <div class="field">
+      <label>Services</label>
+      <textarea rows="2">Web Development, App Development, UI/UX Design</textarea>
+    </div>
+  </div>
+
+  <!-- LOGO -->
+  <div class="card">
+    <h3>Company Logo</h3>
+    <hr>
+
+    <div class="logo-upload">
+     <div class="logo-preview" id="logoPreview">TF</div>
+      <button onclick="openLogoPicker()">Upload Logo</button>
+<input type="file" id="logoInput" accept="image/*" hidden>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="actions">
+    <button class="save" onclick="saveCompany()">Save Changes</button>
+
+    <button class="reset" onclick="resetCompany()">Reset</button>
+
+    <button class="preview-btn" onclick="openPreview()">
+  Preview Company
+</button>
+
+
+
+  </div>
+
+</main>
+
+<script>
+const logoInput = document.getElementById("logoInput");
+const logoPreview = document.getElementById("logoPreview");
+
+/* Upload Logo */
+function openLogoPicker() {
+  logoInput.click();
+}
+
+logoInput.onchange = () => {
+  const file = logoInput.files[0];
+  if (file) {
+    logoPreview.innerHTML = `<img src="${URL.createObjectURL(file)}">`;
+  }
+};
+
+/* Save Changes */
+function saveCompany() {
+  alert("✅ Company details saved (frontend demo)");
+}
+
+/* Reset */
+function resetCompany() {
+  document.querySelectorAll("input, textarea").forEach(field => {
+    field.value = "";
+  });
+
+  logoPreview.innerText = "TF";
+}
+</script>
+
+<script>
+function saveCompany() {
+  const phone = document.getElementById("companyPhone").value.trim();
+  const email = document.getElementById("companyEmail").value.trim();
+  const address = document.getElementById("companyAddress").value.trim();
+  const website = document.getElementById("companyWebsite").value.trim();
+  const linkedin = document.getElementById("companyLinkedin").value.trim();
+
+  if (!phone || !email || !address || !website || !linkedin) {
+    alert("Please fill all contact information fields");
+    return;
+  }
+
+  const companyData = {
+    phone,
+    email,
+    address,
+    website,
+    linkedin
+  };
+
+  console.log("Saved Company Info:", companyData);
+
+  alert("Company details saved successfully ✅");
+}
+</script>
+
+<script>
+  function openPreview(){
+    window.location.href="hr-company-preview.html";
+  }
+</script>
+
+</body>
+</html>
